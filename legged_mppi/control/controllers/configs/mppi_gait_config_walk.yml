@@ -1,0 +1,106 @@
+# ============================
+# MPPI Configuration File
+# ============================
+
+# MPPI Parameters
+# These control the behavior of the Model Predictive Path Integral optimization.
+dt: 0.01          # Time step size for simulation (in seconds).
+n_samples: 30     # Number of trajectory samples per iteration.
+lambda: 0.1       # Temperature parameter for trajectory cost weighting.
+horizon: 40       # Prediction horizon (number of time steps).
+n_workers: 5      # Number of parallel workers for optimization.
+seed: 42          # Random seed for reproducibility.
+
+# ============================
+# Model Parameters for Contact Dynamics
+# ============================
+o_solref:
+  - 0.02          # Time constant for contact model (stiffness control).
+  - 1.0           # Damping ratio for the contact model.
+
+# ============================
+# Spline Parameters
+# ============================
+sample_type: "cubic" # Spline interpolation type ("cubic" for cubic splines).
+n_knots: 4          # Number of control points (knots) in the spline.
+
+# ============================
+# Noise Parameters
+# ============================
+# Noise standard deviations applied to control inputs for exploration.
+noise_sigma:
+  - 0.06 # Hip joint (Front Right - FR)
+  - 0.1  # Thigh joint (FR)
+  - 0.1  # Calf joint (FR)
+  - 0.06 # Hip joint (Front Left - FL)
+  - 0.1  # Thigh joint (FL)
+  - 0.1  # Calf joint (FL)
+  - 0.06 # Hip joint (Rear Right - RR)
+  - 0.1  # Thigh joint (RR)
+  - 0.1  # Calf joint (RR)
+  - 0.06 # Hip joint (Rear Left - RL)
+  - 0.1  # Thigh joint (RL)
+  - 0.1  # Calf joint (RL)
+
+# ============================
+# Cost Function Parameters
+# ============================
+
+# Diagonal entries of the state cost matrix Q
+# Higher values penalize deviations from reference states more heavily.
+Q_diag:
+  - 700    # x-position
+  - 700    # y-position
+  - 5000   # z-position (height)
+  - 200000 # Quaternion rotation (w)
+  - 0      # Quaternion rotation (x)
+  - 0      # Quaternion rotation (y)
+  - 0      # Quaternion rotation (z)
+  - 800    # Hip joint (FR)
+  - 800    # Thigh joint (FR)
+  - 800    # Calf joint (FR)
+  - 800    # Hip joint (FL)
+  - 800    # Thigh joint (FL)
+  - 800    # Calf joint (FL)
+  - 800    # Hip joint (RR)
+  - 800    # Thigh joint (RR)
+  - 800    # Calf joint (RR)
+  - 800    # Hip joint (RL)
+  - 800    # Thigh joint (RL)
+  - 800    # Calf joint (RL)
+  - 1      # x velocity
+  - 0.0001 # y velocity
+  - 0.0001 # z velocity
+  - 0.0001 # Angular velocity (x)
+  - 0.0001 # Angular velocity (y)
+  - 0.0001 # Angular velocity (z)
+  - 0.1    # Hip joint velocity (FR)
+  - 0.1    # Thigh joint velocity (FR)
+  - 0.1    # Calf joint velocity (FR)
+  - 0.1    # Hip joint velocity (FL)
+  - 0.1    # Thigh joint velocity (FL)
+  - 0.1    # Calf joint velocity (FL)
+  - 0.1    # Hip joint velocity (RR)
+  - 0.1    # Thigh joint velocity (RR)
+  - 0.1    # Calf joint velocity (RR)
+  - 0.1    # Hip joint velocity (RL)
+  - 0.1    # Thigh joint velocity (RL)
+  - 0.1    # Calf joint velocity (RL)
+
+# ============================
+# Control Cost Matrix R
+# ============================
+# Penalizes excessive control effort (torque commands).
+R_diag:
+  - 0.001 # Hip joint (FR)
+  - 0.001 # Thigh joint (FR)
+  - 0.001 # Calf joint (FR)
+  - 0.001 # Hip joint (FL)
+  - 0.001 # Thigh joint (FL)
+  - 0.001 # Calf joint (FL)
+  - 0.001 # Hip joint (RR)
+  - 0.001 # Thigh joint (RR)
+  - 0.001 # Calf joint (RR)
+  - 0.001 # Hip joint (RL)
+  - 0.001 # Thigh joint (RL)
+  - 0.001 # Calf joint (RL)

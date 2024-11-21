@@ -1,0 +1,46 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS specific files
+.DS_Store
+
+# Virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Logs and database files
+*.log
+*.sqlite3
+
+# Unit test coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Cache and temporary files
+*.cache
+*.temp
+*.tmp
+
+# Python package files
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Ignore compiled C extensions
+*.so
