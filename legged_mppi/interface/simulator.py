@@ -33,9 +33,9 @@ class Simulator:
     """
     def __init__(self, filter=None, agent=None,
                  model_path = os.path.join(os.path.dirname(__file__), "../models/go1/task_simulate.xml"),
-                T = 200, dt = 0.001, viewer = True, gravity = True,
+                T = 200, dt = 0.01, viewer = True, gravity = True,
                 # stiff=False
-                timeconst=0.04, dampingratio=1.0, ctrl_rate=100,
+                timeconst=0.02, dampingratio=1.0, ctrl_rate=100,
                 save_dir="./frames", save_frames=False
                 ):
         # filter
@@ -57,11 +57,9 @@ class Simulator:
         self.save_dir = save_dir
         # rollout
         mujoco.mj_resetData(self.model, self.data)
-        self.data.qpos = self.model.key_qpos[0]
-        self.data.qvel = self.model.key_qvel[0]
-        self.data.ctrl = self.model.key_ctrl[0]
-
-        self.lying_joint_angles = np.array([-0.37961966, 1.1736176, -2.78803563, 0.39082235, 1.13189518, -2.75953436, -0.39512175, 1.1023442, -2.76518631, 0.36369368, 1.12129807, -2.74447632])
+        self.data.qpos = self.model.key_qpos[1]
+        self.data.qvel = self.model.key_qvel[1]
+        self.data.ctrl = self.model.key_ctrl[1]
 
         # turn off gravity
         if not gravity:
@@ -151,16 +149,17 @@ class Simulator:
                 self.data.ctrl = action
 
             mujoco.mj_step(self.model, self.data)
+            mujoco.mj_forward(self.model, self.data)
             
             error = np.linalg.norm(np.array(self.agent.body_ref[:3]) - np.array(self.data.qpos[:3]))
-            if error < 0.2:
+            if error < self.agent.goal_thresh[self.agent.goal_index]:
                 self.agent.next_goal()
 
             if self.viewer is not None and self.viewer.is_alive:
                 self.viewer.add_marker(
                     pos=self.agent.body_ref[:3]*1,         # Position of the marker
                     size=[0.15, 0.15, 0.15],     # Size of the sphere
-                    rgba=[1, 1, 0, 1],           # Color of the sphere (red)
+                    rgba=[1, 0, 1, 1],           # Color of the sphere (red)
                     type=mujoco.mjtGeom.mjGEOM_SPHERE, # Specify that this is a sphere
                     label=""
                 )

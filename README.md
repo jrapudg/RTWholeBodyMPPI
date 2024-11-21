@@ -24,7 +24,7 @@ A Python implementation of a **Model Predictive Path Integral (MPPI)** controlle
 - [Tasks](#tasks)
 - [Notebooks](#notebooks)
 - [Simulation](#simulation)
-- [Usage](#usage)
+- [Definitions](#definitions)
 - [License](#license)
 
 ---
@@ -90,13 +90,26 @@ legged_mppi/MPPI_tasks_push.ipynb
 To run a simulation, use the provided Python script:
 ```bash
    cd legged_mppi
-   python simulate_mppi.py
+   python simulate_mppi.py --task <task_name>
 ```
-Note: Modify `simulate_mppi.py` to simulate other MPPI general tasks.
+### Available Tasks
+The following tasks can be simulated:
 
+- `walk_straight`
+- `walk_octagon`
+- `big_box`
+- `stairs`
+
+
+### Example Usage
+Run a simulation for the `stairs` task:
+
+```bash
+python simulate_mppi.py --task stairs
+```
 ---
-## Usage
-### Task Definitions
+
+## Definitions
 Tasks are defined in the `legged_mppi/utils/tasks.py` file. This file contains the descrition of every task as a dictionary containing the following variables:
 
 | **Parameter**       | **Description**                                                                                          |
@@ -120,7 +133,7 @@ These configuration files include:
 - **Time step (`dt`)**: Defines the simulation's time step size.
 - **Horizon length (`horizon`)**: Specifies how many future steps are considered in planning.
 - **Number of samples (`n_samples`)**: The number of trajectories sampled during planning.
-- **Noise parameters (`noise_sigma`)**: The variance of noise added to sampled trajectories.
+- **Noise parameters (`noise_sigma`)**: The standard deviation of noise added to sampled trajectories.
 
 #### **Cost Weights**
 - **State cost matrix (`Q`, `Q_robot`, `Q_box`)**: Penalizes deviations from the desired state.
