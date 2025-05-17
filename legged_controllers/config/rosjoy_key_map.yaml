@@ -1,0 +1,24 @@
+# joystick mapping ( must change according to your joystick)
+# for example,
+# - xbox controller has right updown axis as 4, right horizontal axis as 3
+# - nvidia controller has right updown axis as 5, right horizontal axis as 2
+
+joystick_left_updown_axis: 1 # the left joy stick updown axis,
+joystick_left_horiz_axis: 0 # the left joy stick horizontal axis,     control yaw rate
+joystick_right_updown_axis: 4 # the right joy stick updown axis,      control forward and backward
+joystick_right_horiz_axis: 3 # the right joy stick horizontal axis,   control left and right
+joystick_mode_switch_button: 0 # the button A on the right side,      switch stance/trot/flying_trot gaits
+joystick_start_button: 4 # the lb button on the left side,            start the controller (robot will standup)
+joystick_stop_button: 5 # the rb button on the right side,            stop the controller (robot will shutdown and fall down, so be careful to press stop after switching to stance mode)
+
+# joystick parameters
+joystick_velx_scale: 0.9 # m/s
+joystick_vely_scale: 0.3 # m/s
+joystick_height_vel: 0.1 # m/s
+joystick_max_height: 0.30 # m
+joystick_min_height: 0.03 # m
+joystick_yaw_rate_scale: 0.6 # rad/s
+joystick_roll_rate_scale: 0.4 # rad/s
+joystick_pitch_rate_scale: 0.4 # rad/s
+
+joystick_smooth_coeffi: 0.8 # smooth the input

@@ -1,0 +1,6 @@
+mujoco==3.1.6
+scipy
+numpy
+mujoco-python-viewer==0.1.4
+matplotlib
+tqdm==4.66.5

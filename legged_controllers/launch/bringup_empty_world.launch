@@ -1,0 +1,19 @@
+<launch>
+  <arg name="robot_type" default="go1" />
+  <arg name="cheater" default="false" />
+
+  <!-- 1. Launch Gazebo and robot -->
+  <include file="$(find legged_unitree_description)/launch/empty_world.launch">
+    <arg name="robot_type" value="$(arg robot_type)" />
+  </include>
+
+  <!-- 2. Load controllers -->
+  <include file="$(find legged_controllers)/launch/load_controller.launch">
+    <arg name="robot_type" value="$(arg robot_type)" />
+    <arg name="cheater" value="$(arg cheater)" />
+  </include>
+
+  <!-- 3. Call controller switch script -->
+  <node name="switch_controller" pkg="legged_controllers" type="switch_controller.sh"
+        output="screen" />
+</launch>
