@@ -10,13 +10,6 @@ A Python implementation of a **Model Predictive Path Integral (MPPI)** controlle
 
 </center>
 
-### Quadruped climbing a box:
-<center>
-
-![](./animations/climb.gif)
-
-</center>
-
 ---
 ## **Release Note**  
 * 🤖🐕 [2024/11/21] This is the **first release** of the Whole Body MPPI project. Key highlights of this release include:
@@ -83,7 +76,7 @@ docker ps
 
 ---
 ## Simulation
-### General locomotion tasks
+### Locomotion tasks
 
 <center>
 
@@ -153,6 +146,25 @@ rosrun legged_mppi simulate_mppi.py --task stairs
 ``` 
 ---
 ## Hardware
+### Locomotion tasks
+
+<center>
+
+| **Walk Octagon Task**                            | **Climb Box Task**                    |
+|:----------------------------------------:|:----------------------------------------:|
+| ![](./animations/walk_hw.gif)               | ![](./animations/climb_hw.gif)       |
+
+</center>
+
+### Locomanipulation task
+
+<center>
+
+| **Push a box**                            | 
+|:----------------------------------------:|
+| ![](./animations/push_box_hw.gif)               |
+
+</center>
 1. Run gazebo (for simulation or check if everything is working correctly):
 
 ```
