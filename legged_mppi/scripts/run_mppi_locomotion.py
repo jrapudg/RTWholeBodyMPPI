@@ -164,7 +164,8 @@ class Controller:
             rate.sleep()
 
 if __name__ == "__main__":
-    VALID_TASKS = ['walk_octagon', 'walk_octagon_hw', '']
+    VALID_TASKS = ['stairs', 'stand', 'walk_octagon', 'walk_straight', 'big_box',
+                   'walk_octagon_hw', 'walk_straight_hw', 'stand_hw', 'climb_box_hw']
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--task', type=str, required=True, choices=VALID_TASKS, help="Which task to run")
@@ -172,7 +173,7 @@ if __name__ == "__main__":
                         help="Choose source for pose: mocap, gazebo, or ekf")
     args = parser.parse_args()
 
-    # Hardcoded topic mapping
+    # Topic mapping
     if args.pose_source == 'mocap':
         position_topic = '/mocap_node/Go1_body/Odom'
         velocity_topic = '/odom'
