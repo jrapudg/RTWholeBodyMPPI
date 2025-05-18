@@ -12,14 +12,15 @@ A Python implementation of a **Model Predictive Path Integral (MPPI)** controlle
 
 ---
 ## **Release Note**  
-* 🤖🐕 [2024/11/21] This is the **first release** of the Whole Body MPPI project. Key highlights of this release include:
-    - Provides complete **MPPI controller implementations** for whole-body motion in simulation environments.
-    - Focused entirely on **simulation tasks** for quadruped robots, showcasing general locomotion, stair climbing, and box pushing.
-    - Includes interactive **Jupyter Notebooks** for experimenting with different MPPI tasks and configurations.
 * 🛠️📡📦 [2025/05/17] The **hardware implementation code** for deploying tasks on Unitree Go1. Key highlights of this release include:
     - A dedicated **Hardware interface**  for real-time control of the Unitree Go1.
     - An integrated **Extended Kalman Filter (EKF)** for state estimation.
     - Support for motion capture integration via **Optitrack MoCap**.
+      
+* 🤖🐕 [2024/11/21] This is the **first release** of the Whole Body MPPI project. Key highlights of this release include:
+    - Provides complete **MPPI controller implementations** for whole-body motion in simulation environments.
+    - Focused entirely on **simulation tasks** for quadruped robots, showcasing general locomotion, stair climbing, and box pushing.
+    - Includes interactive **Jupyter Notebooks** for experimenting with different MPPI tasks and configurations.
 
 * 🔔 Future updates:
     - Tools for generating **gait reference trajectories** to support new locomotion behaviors.
