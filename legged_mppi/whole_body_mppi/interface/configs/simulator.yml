@@ -1,0 +1,14 @@
+# simulation parameters
+dt: 0.01
+
+o_solref:
+  - 0.02 # time constant for contact model
+  - 1.0  # damping ratio for contact model
+
+T: 10000000 # simulation timesteps
+
+keyframe: 1 # reset to this keyframe 0 is stand, 1 is sit, 2 is 
+
+
+
+

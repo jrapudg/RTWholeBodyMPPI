@@ -1,0 +1,11 @@
+float32 treadmill_speed
+int32 treadmill_index
+bool banana_enable
+bool bridge_enable
+float32[3] banana_location
+float32 cmd_forward_speed
+float32 cmd_side_speed
+float32 cmd_yaw_deg
+int32 plan_method
+bool use_gui
+float32 init_transition

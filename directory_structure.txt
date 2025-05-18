@@ -1,0 +1,138 @@
+.
+├── legged_mppi
+│   ├── CMakeLists.txt
+│   ├── notebooks
+│   │   ├── MPPI_tasks.ipynb
+│   │   └── MPPI_tasks_push.ipynb
+│   ├── package.xml
+│   ├── pyproject.toml
+│   ├── requirements.txt
+│   ├── scripts
+│   │   ├── run_mppi_locomanipulation.py
+│   │   ├── run_mppi_locomotion.py
+│   │   └── simulate_mppi.py
+│   ├── setup.py
+│   └── whole_body_mppi
+│       ├── analysis
+│       │   └── ...
+│       ├── control
+│       │   ├── controllers
+│       │   │   ├── base_controller.py
+│       │   │   ├── configs
+│       │   │   │   ├── mppi_gait_config_big_box.yml
+│       │   │   │   ├── mppi_gait_config_climb_box_hw.yml
+│       │   │   │   ├── mppi_gait_config_push_box_hw.yml
+│       │   │   │   ├── mppi_gait_config_push_box.yml
+│       │   │   │   ├── mppi_gait_config_stairs.yml
+│       │   │   │   ├── mppi_gait_config_walk_hw.yml
+│       │   │   │   └── mppi_gait_config_walk.yml
+│       │   │   ├── mppi_locomanipulation.py
+│       │   │   └── mppi_locomotion.py
+│       │   ├── gait_scheduler
+│       │   │   ├── gaits
+│       │   │   │   ├── FAST
+│       │   │   │   │   └── *.tsv
+│       │   │   │   ├── MED
+│       │   │   │   │   └── *.tsv
+│       │   │   │   └── SLOW
+│       │   │   │       └── *.tsv
+│       │   │   └── scheduler.py
+│       │   └── __init__.py
+│       ├── __init__.py
+│       ├── interface
+│       │   ├── configs
+│       │   │   └── simulator.yml
+│       │   ├── __init__.py
+│       │   └── simulator.py
+│       ├── models
+│       │   ├── common.xml
+│       │   └── go1
+│       │       ├── assets
+│       │       ├── go1_mppi_all_contacts.xml
+│       │       ├── go1_mppi_cf.xml
+│       │       ├── go1_mppi_pyr.xml
+│       │       ├── go1_mppi.xml
+│       │       ├── go1_scene_mppi_pyr_big_box.xml
+│       │       ├── go1_scene_mppi_pyr_climb_box_hw.xml
+│       │       ├── go1_scene_mppi_pyr_med_box_mujoco.xml
+│       │       ├── go1_scene_mppi_pyr_push_box_14in.xml
+│       │       ├── go1_scene_mppi_pyr_push_box_prop.xml
+│       │       ├── go1_scene_mppi_pyr_push_box.xml
+│       │       ├── go1_scene_mppi_pyr.xml
+│       │       ├── go1_scene_mppi_stairs.xml
+│       │       ├── go1_scene_mppi.xml
+│       │       ├── LICENSE
+│       │       ├── README.md
+│       │       └── urdf
+│       └── utils
+│           ├── __init__.py
+│           ├── tasks.py
+│           └── transforms.py
+├── animations
+│   ├── ...
+├── bags
+│   ...
+├── .devcontainer
+│   ├── configure_xauth.bash
+│   ├── devcontainer.json
+│   └── Dockerfile_go1
+├── Dockerfile_go1
+├── legged_common
+│   ├── ...
+├── legged_control
+│   ├── ..
+├── legged_controllers
+│   ├── ...
+│   ├── launch
+│   │   ├── bringup_empty_world.launch
+│   │   ├── bringup_hw.launch
+│   │   ├── ...
+│   └── ...
+├── legged_estimation
+│   └── ...
+├── legged_examples
+│   └── ...
+├── legged_gazebo
+│   ├── ...
+│   └── worlds
+│       ├── box_world_hw.world
+│       ├── box_world.world
+│       └── empty_world.world
+├── legged_hw
+│   └── ...
+├── legged_interface
+│   └── ...
+├── legged_wbc
+│   └── ...
+├── LICENSE
+├── mocap_optitrack
+│   └── ...
+├── qpoases_catkin
+│   └── ...
+├── qpos_visualizer
+│   ├── CMakeLists.txt
+│   ├── package.xml
+│   └── scripts
+│       ├── qpos_visualizer_mujoco_37.py
+│       └── qpos_visualizer_mujoco.py
+├── README.md
+├── setup_ros_ws.sh
+└── unitree_legged_msgs
+    ├── CMakeLists.txt
+    ├── msg
+    │   ├── Cartesian.msg
+    │   ├── GaitState.msg
+    │   ├── GoalState.msg
+    │   ├── HighCmd.msg
+    │   ├── HighState.msg
+    │   ├── IMU.msg
+    │   ├── LED.msg
+    │   ├── LowCmd.msg
+    │   ├── LowState.msg
+    │   ├── LowStateStamped.msg
+    │   ├── MotorCmd.msg
+    │   ├── MotorState.msg
+    │   └── TaskConfig.msg
+    └── package.xml
+
+102 directories, 229 files

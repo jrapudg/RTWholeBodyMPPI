@@ -1,0 +1,4 @@
+std_msgs/Header header
+std_msgs/Float32MultiArray gait
+std_msgs/Float32MultiArray indices
+float32[24] current_joints_pos
