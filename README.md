@@ -162,7 +162,7 @@ rosrun legged_mppi simulate_mppi.py --task stairs
 
 | **Push a box**                            | 
 |:----------------------------------------:|
-| ![](./animations/push_box_hw.gif)               |
+| ![](./animations/push_hw.gif)               |
 
 </center>
 1. Run gazebo (for simulation or check if everything is working correctly):
