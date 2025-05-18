@@ -1,38 +1,4 @@
 .
-├── animations
-│   ├── ...
-├── bags
-│   ...
-├── .devcontainer
-│   ├── configure_xauth.bash
-│   ├── devcontainer.json
-│   └── Dockerfile_go1
-├── Dockerfile_go1
-├── legged_common
-│   ├── ...
-├── legged_control
-│   ├── ..
-├── legged_controllers
-│   ├── ...
-│   ├── launch
-│   │   ├── bringup_empty_world.launch
-│   │   ├── bringup_hw.launch
-│   │   ├── ...
-│   └── ...
-├── legged_estimation
-│   └── ...
-├── legged_examples
-│   └── ...
-├── legged_gazebo
-│   ├── ...
-│   └── worlds
-│       ├── box_world_hw.world
-│       ├── box_world.world
-│       └── empty_world.world
-├── legged_hw
-│   └── ...
-├── legged_interface
-│   └── ...
 ├── legged_mppi
 │   ├── CMakeLists.txt
 │   ├── notebooks
@@ -102,6 +68,40 @@
 │           ├── __init__.py
 │           ├── tasks.py
 │           └── transforms.py
+├── animations
+│   ├── ...
+├── bags
+│   ...
+├── .devcontainer
+│   ├── configure_xauth.bash
+│   ├── devcontainer.json
+│   └── Dockerfile_go1
+├── Dockerfile_go1
+├── legged_common
+│   ├── ...
+├── legged_control
+│   ├── ..
+├── legged_controllers
+│   ├── ...
+│   ├── launch
+│   │   ├── bringup_empty_world.launch
+│   │   ├── bringup_hw.launch
+│   │   ├── ...
+│   └── ...
+├── legged_estimation
+│   └── ...
+├── legged_examples
+│   └── ...
+├── legged_gazebo
+│   ├── ...
+│   └── worlds
+│       ├── box_world_hw.world
+│       ├── box_world.world
+│       └── empty_world.world
+├── legged_hw
+│   └── ...
+├── legged_interface
+│   └── ...
 ├── legged_wbc
 │   └── ...
 ├── LICENSE

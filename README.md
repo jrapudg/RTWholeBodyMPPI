@@ -1,10 +1,19 @@
-# Whole Body MPPI
+# Whole-Body MPPI
 
 A Python implementation of a **Model Predictive Path Integral (MPPI)** controller for whole-body motion tasks of a quadruped robot in **[simulation](#simulation)** and **[hardware](#hardware)**. This project includes tasks such as general locomotion and box-pushing, with interactive Jupyter Notebooks to explore different functionalities.
+
+### MPPI explained:
 
 <center>
 
 ![](./animations/mppi.gif)
+
+</center>
+
+### Quadruped climbing a box:
+<center>
+
+![](./animations/climb.gif)
 
 </center>
 
@@ -26,9 +35,9 @@ A Python implementation of a **Model Predictive Path Integral (MPPI)** controlle
 ## Contents
 - [Installation](#installation)
 - [Tasks](#tasks)
+- [Simulation](#simulation)
 - [Notebooks](#notebooks)
 - [Hardware](#hardware)
-- [Simulation](#simulation)
 - [Definitions](#definitions)
 - [License](#license)
 
@@ -54,7 +63,7 @@ A Python implementation of a **Model Predictive Path Integral (MPPI)** controlle
     cd legged_mppi/
     pip install -e .
     ```
-### Hardware
+### Hardware Interface Installation
 Our hardware interface is based on legged_control project from [ShuoYangRobotics](hhttps://github.com/ShuoYangRobotics/legged_control).
 #### Prerequisites
 - Docker
@@ -63,7 +72,7 @@ Our hardware interface is based on legged_control project from [ShuoYangRobotics
 #### Steps
 1. **Open project in container using VSCode**
 
- After the docker is built, you can access the container: 
+ After the docker is built and the container is running, you can either open a terminal in VSCode or access the container with this command: 
    ```
    docker exec -it CONTAINER_ID /bin/zsh
    ```
@@ -73,7 +82,7 @@ docker ps
 ```
 
 ---
-## Simulation Tasks
+## Simulation
 ### General locomotion tasks
 
 <center>
@@ -111,19 +120,19 @@ Notebook for box-pushing tasks:
 legged_mppi/notebooks/MPPI_tasks_push.ipynb
 ```
 ---
-## Simulation
+## Scripts
 To run a simulation, use the provided Python script:
 ```bash
    cd legged_mppi/scripts
-   python simulate_mppi.py --task <task_name>
+   python simulate_mppi.py --task <task_name_sim>
 ```
 
 If you are using the docker container, you can simply use:
 ```bash
-   rosrun legged_mppi simulate_mppi.py --task <task_name>
+   rosrun legged_mppi simulate_mppi.py --task <task_name_sim>
 ```
 
-### Available Tasks
+### Available Tasks (Mujoco Simulation)
 The following tasks can be simulated:
 
 - `walk_straight`
@@ -131,14 +140,69 @@ The following tasks can be simulated:
 - `big_box`
 - `stairs`
 
-
 ### Example Usage
 Run a simulation for the `stairs` task:
 
 ```bash
 python simulate_mppi.py --task stairs
 ```
+
+If you are using the docker container:
+```bash
+rosrun legged_mppi simulate_mppi.py --task stairs
+``` 
 ---
+## Hardware
+1. Run gazebo (for simulation or check if everything is working correctly):
+
+```
+roslaunch legged_controllers bringup_empty_world.launch 
+```
+Or run on the robot hardware:
+
+```
+roslaunch legged_controllers bringup_hw.launch 
+```
+2. Run the whole-bodyy MPPI controller:
+
+For locomotion:
+```
+rosrun legged_mppi run_mppi_locomotion.py --task <task_name_hw> --pose_source <pose_source_name>
+```
+
+For locomanipulation:
+```
+rosrun legged_mppi run_mppi_locomomanipulation.py
+```
+
+### Available Tasks (Hardware)
+The following tasks can run on hardware:
+
+- `stand_hw`
+- `walk_straight_hw`
+- `walk_octagon_hw`
+- `climb_box_hw`
+
+### Available Pose Sources
+The following sources can run on hardware:
+
+- `ekf`
+- `gazebo` (Only when running gazebo simulation)
+- `mocap` (Only when running Optitrack node)
+
+### Example Usage
+Run robot for the `stand_hw` task using the extended Kalman filter:
+
+```bash
+rosrun legged_mppi run_mppi_locomotion.py --task stand_hw --pose_source ekf
+```
+
+### Note
+You can check if the controller is running at 100 Hz with this command:
+
+```bash
+rostopic hz /joint_controller_FL_calf/cmd 
+```
 
 ## Definitions
 Tasks are defined in the `legged_mppi/whole_body_mppi/utils/tasks.py` file. This file contains the descrition of every task as a dictionary containing the following variables:
