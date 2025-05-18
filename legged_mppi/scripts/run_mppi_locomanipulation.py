@@ -182,9 +182,8 @@ class Controller:
 
 if __name__ == "__main__":
 
-    task = "push_box"
-    # position_topic = '/mocap_node/Go1_body/Odom'
-    position_topic = '/ground_truth/state'
+    task = "push_box_hw"
+    position_topic = '/mocap_node/Go1_body/Odom'
     velocity_topic = '/odom'
     box_topic = "/mocap_node/Box_body/Odom"
 
